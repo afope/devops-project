@@ -21,4 +21,9 @@ jobs:
       - run: npm run build
       - run: npm run export
       - run: npm run lint
-      - run: npm run cypress:headless
+      - name: 'Upload Artifact' 
+          uses: actions/upload-artifact@v3
+          with: 
+            name: nextjs-build-output
+            path: ./out
+            retention-days: 2

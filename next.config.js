@@ -4,6 +4,8 @@ const nextConfig = {
   swcMinify: true,
   images: {
     unoptimized: true,
+    assetPrefix: '/devops-project/',
+    basePath: '/devops-project', // Note that the basePath doesnt end on a slash
   }
 }
 
