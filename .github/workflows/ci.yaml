@@ -27,3 +27,18 @@ jobs:
           name: nextjs-build-output
           path: ./out
           retention-days: 2
+
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps: 
+      - name: Download nextjs output
+        uses: actions/download-artifact@v3
+        with:
+          name: nextjs-build-output
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
