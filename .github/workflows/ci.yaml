@@ -38,6 +38,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: nextjs-build-output
+          path: ./out
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
