@@ -8,7 +8,7 @@ RUN npm run lint
 EXPOSE 3000
 CMD ["npm", "start"]
 
-# To built this image use the command 
+# To build this image use the command 
 # docker build . -t nextjs -f ./dockerfile
 
 # Run: docker run -d -p 127.0.0.1:3000:3000 --name nextjs nextjs
