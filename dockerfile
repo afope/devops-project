@@ -9,6 +9,6 @@ EXPOSE 3000
 CMD ["npm", "start"]
 
 # To build this image use the command 
-# docker build . -t nextjs -f ./dockerfile
+# docker build . -t devops-project -f ./dockerfile
 
-# Run: docker run -d -p 127.0.0.1:3000:3000 --name nextjs nextjs
+# Run: docker run -d -p 127.0.0.1:3000:3000 --name devops-project devops-project
