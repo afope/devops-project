@@ -11,12 +11,12 @@ metadata:
 spec:
   rules:
     - host: devops-project-afope.cloud.okteto.net
-  http:
-    paths:
-      - path: /(.*)
-    pathType: Exact
-    backend:
-      service:
-        name: nextjs
-        port:
-          number: 80
+      http:
+        paths:
+          - path: /(.*)
+            pathType: Exact
+            backend:
+              service:
+                name: nextjs
+                port:
+                  number: 80
