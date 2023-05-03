@@ -15,9 +15,9 @@ spec:
       labels:
         app: nextjs
         name: nextjs
-      spec:
-        imagePullSecrets:
-          - name: github-registry
+    spec:
+      imagePullSecrets:
+        - name: github-registry
       containers:
         - name: nextjs
           image: "ghcr.io/afope/devops-project:$TAG"
