@@ -66,9 +66,6 @@ jobs:
 
         # Small hint have a look at the version/tags on this page https://github.com/okteto/actions/tree/master
 
-      - name: checkout
-        uses: actions/checkout@master
-
       - name: "Activate Namespace"
         uses: okteto/actions/namespace@v3.1
         with:
