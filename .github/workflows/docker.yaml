@@ -42,42 +42,42 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
     # CD Pipeline
-    deploy:
-      needs: [build]
-      runs-on: ubuntu-latest
+  deploy:
+    needs: [build]
+    runs-on: ubuntu-latest
 
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v3
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
 
-        - name: Replace Environment Variables
-          uses: danielr1996/envsubst-action@1.0.0
-          env:
-            TAG: ${{ env.TAG }}
-          with:
-            input: k8s/temp-deployment.yaml # you need to create this file with above given manifest
-            output: deployment.yaml
+      - name: Replace Environment Variables
+        uses: danielr1996/envsubst-action@1.0.0
+        env:
+          TAG: ${{ env.TAG }}
+        with:
+          input: k8s/temp-deployment.yaml # you need to create this file with above given manifest
+          output: deployment.yaml
 
-          # Create a step to get the Kube Config from Okteto
+        # Create a step to get the Kube Config from Okteto
 
-          # Deploy to okteto
+        # Deploy to okteto
 
-          # I left this last steps blank for you search how to create the connection to Okteto
+        # I left this last steps blank for you search how to create the connection to Okteto
 
-          # Small hint have a look at the version/tags on this page https://github.com/okteto/actions/tree/master
+        # Small hint have a look at the version/tags on this page https://github.com/okteto/actions/tree/master
 
-        - name: checkout
-          uses: actions/checkout@master
+      - name: checkout
+        uses: actions/checkout@master
 
-        - name: "Activate Namespace"
-          uses: okteto/actions/namespace@v3.1
-          with:
-            name: afope
-            token: ${{ secrets.OKTETO_TOKEN }}
+      - name: "Activate Namespace"
+        uses: okteto/actions/namespace@v3.1
+        with:
+          name: afope
+          token: ${{ secrets.OKTETO_TOKEN }}
 
-        - name: "Deploy"
-          uses: okteto/actions/deploy@v3.1
-          with:
-            namespace: afope
-            manifest: deployment.yaml
-            waitOn: deployment/nextjs
+      - name: "Deploy"
+        uses: okteto/actions/deploy@v3.1
+        with:
+          namespace: afope
+          manifest: deployment.yaml
+          waitOn: deployment/nextjs
