@@ -77,4 +77,4 @@ jobs:
         with:
           namespace: afope
           manifest: deployment.yaml
-          waitOn: deployment.apps/nextjs
+          waitOn: deployment/nextjs
