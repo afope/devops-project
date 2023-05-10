@@ -53,7 +53,7 @@ jobs:
       - name: Replace Environment Variables
         uses: danielr1996/envsubst-action@1.0.0
         env:
-          TAG: ${{ env.TAG }}
+          TAG: ${{ github.run_number }}
         with:
           input: k8s/temp-deployment.yaml # you need to create this file with above given manifest
           output: deployment.yaml
