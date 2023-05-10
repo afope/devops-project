@@ -3,28 +3,20 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nextjs
-  labels:
-    app: nextjs
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: nextjs
+  replicas: 1
   template:
     metadata:
       labels:
         app: nextjs
-        name: nextjs
     spec:
       imagePullSecrets:
         - name: github-registry
       containers:
         - name: nextjs
           image: "ghcr.io/afope/devops-project:$TAG"
-          resources:
-            limits:
-              memory: "200Mi"
-            requests:
-              memory: "100Mi"
           ports:
             - containerPort: 3000
