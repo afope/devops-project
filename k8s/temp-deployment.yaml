@@ -1,4 +1,4 @@
-# temp deployment manifest
+# Temp Deployment Manifest
 apiVersion: apps/v1
 kind: Deployment
 metadata:
